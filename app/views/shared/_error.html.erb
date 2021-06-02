@@ -1,0 +1,11 @@
+<% if flash.alert %>
+    <p class="alert"><%= flash.alert %></p>
+<% end %>
+
+<% if obj.errors.any? %>
+    <% obj.errors.full_messages.each do |message| %>
+        <ul>
+            <li class="error-message"><%= message %></p>
+        </ul>
+    <% end %>
+<% end %>
