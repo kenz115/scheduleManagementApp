@@ -1,0 +1,29 @@
+<h2>スケジュール詳細</h2>
+
+<table class="form">
+  <tr>
+    <th>タイトル</th>
+    <td><%= @schedule.title %></td>
+  </tr>
+  <tr>
+    <th>開始日</th>
+    <td><%= @schedule.start_date.to_s(:datetime_jp) %></td>
+  </tr>
+  <tr>
+    <th>終了日</th>
+    <td><%= @schedule.end_date.to_s(:datetime_jp) %></td>
+  </tr>
+  <tr>
+    <th>終日</th>
+    <% all_day = @schedule.all_day === true ? "○" : "" %>
+    <td><%= all_day %></td>
+  </tr>
+  <tr>
+    <th>メモ</th>
+    <td><%= @schedule.memo %></td>
+  </tr>
+</table>
+
+<p class="link"><%= link_to "スケジュール一覧に戻る", :schedules %></p>
+<p class="link"><%= link_to "スケジュールを編集する", [:edit, @schedule] %></p>
+<p class="link"><%= link_to "スケジュールを削除する", @schedule, method: :delete, data: { confirm: "本当に削除しますか？" } %></p>
